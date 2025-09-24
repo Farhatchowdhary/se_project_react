@@ -1,0 +1,61 @@
+.footer-copyright {
+  width: 100%;
+  bottom: 0;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  padding: 10px 20px;
+  margin-top: auto;
+}
+
+.copyright {
+  display: flex;
+  justify-content: space-between;
+  /* left & right alignment */
+  margin: 0;
+  margin-right: 42px;
+  height: 20px;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-weight: 500;
+  font-style: medium;
+  font-size: 16px;
+  letter-spacing: 0%;
+  color: black;
+
+
+}
+
+/* ---------------- Tablet / medium screens ---------------- */
+@media screen and (max-width: 720px) {
+  .footer-copyright {
+    padding: 8px 25px;
+    margin-bottom: 35px;
+
+  }
+
+  .copyright {
+    display: flex;
+    align-items: center;
+    /* center horizontally */
+    font-size: 14px;
+    justify-content: center;
+  }
+}
+
+/* ---------------- Mobile / small screens ---------------- */
+@media screen and (max-width: 388px) {
+  .footer-copyright {
+    padding: 5px 10px;
+    /* very small padding */
+    margin-bottom: 10px;
+  }
+
+  .copyright {
+    font-size: 12px;
+    /* smaller text for tiny screens */
+    flex-direction: column;
+    /* stack content */
+    align-items: center;
+    text-align: center;
+
+  }
+}
