@@ -45,7 +45,7 @@
   top: 8px;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
   font-weight: 700;
-  font-style: Bold;
+  font-style: bold;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0%;
@@ -84,13 +84,10 @@
 @media screen and (max-width: 674px) {
   .header {
     flex-direction: column;
-    /* stack logo, date, buttons */
     align-items: center;
     padding: 20px;
     height: auto;
-    /* let height adjust naturally */
     gap: 15px;
-    /* spacing between sections */
   }
 
   .header__left,
@@ -117,7 +114,7 @@
 }
 
 /* Mobile / very small screens */
-@media screen and (max-width: 388px) {
+@media screen and (max-width: 480px) {
   .header {
     flex-direction: column;
     padding: 10px;
@@ -133,7 +130,6 @@
 
   .header__logo {
     width: 70px;
-    /* shrink logo */
     height: auto;
     margin-bottom: 8px;
   }

@@ -1,6 +1,6 @@
 
 const defaultClothingItems = [
-{
+  {
     _id: 1,
     name: "Boot",
     weather: "cold",

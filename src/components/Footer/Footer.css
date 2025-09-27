@@ -10,7 +10,6 @@
 .copyright {
   display: flex;
   justify-content: space-between;
-  /* left & right alignment */
   margin: 0;
   margin-right: 42px;
   height: 20px;
@@ -35,25 +34,21 @@
   .copyright {
     display: flex;
     align-items: center;
-    /* center horizontally */
     font-size: 14px;
     justify-content: center;
   }
 }
 
 /* ---------------- Mobile / small screens ---------------- */
-@media screen and (max-width: 388px) {
+@media screen and (max-width: 480px) {
   .footer-copyright {
     padding: 5px 10px;
-    /* very small padding */
     margin-bottom: 10px;
   }
 
   .copyright {
     font-size: 12px;
-    /* smaller text for tiny screens */
     flex-direction: column;
-    /* stack content */
     align-items: center;
     text-align: center;
 

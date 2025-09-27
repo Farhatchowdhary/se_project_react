@@ -6,7 +6,6 @@ import "./Main.css";
 const Main = ({ items, onCardClick }) => {
   return (
     <ul className="main-container">
-      {/* Wrap WeatherCard in <li> for consistent structure */}
       <li>
         <WeatherCard />
       </li>
