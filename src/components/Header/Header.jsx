@@ -14,10 +14,7 @@ const Header = ({ onAddClick }) => {
         <span className="header__date">{currentDate}, New York</span>
       </div>
       <div className="header__right">
-        <ToggleSwitch
-          currentTemperatureUnit={currentTemperatureUnit}
-          handleToggleSwitchChange={handleToggleSwitchChange}
-        />
+        <ToggleSwitch />
         <span className="header__add-btn" onClick={onAddClick}>+ Add Clothes</span>
 
         <div className="header__user">

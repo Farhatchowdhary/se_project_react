@@ -1,3 +1,4 @@
+
 // src/utils/weather.js
 
 const weatherTypeMap = {
@@ -16,7 +17,10 @@ export function extractWeatherData(apiResponse) {
   }
 
   const city = apiResponse.name;
-  const temperature = apiResponse.main.temp;
+  const temperature = {
+    F : Math.round((apiResponse.main.temp - 273.15) * 9/5 + 32);
+    C : Math.round(apiResponse.main.temp - 273.15) 
+  };
   const rawWeatherType = apiResponse.weather[0].main;
   const weatherType = weatherTypeMap[rawWeatherType] || rawWeatherType;
 

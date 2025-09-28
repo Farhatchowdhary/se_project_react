@@ -9,6 +9,7 @@
   position: relative;
   cursor: pointer;
   background-color: white;
+  margin-right: 10px;
 }
 
 /* hide the actual checkbox */
@@ -20,7 +21,7 @@
 .c__switch {
   position: relative;
   z-index: 1;
-  /* labels above knob */
+
 }
 
 /* F label - black circle active by default */
@@ -47,7 +48,6 @@
   font-size: 14px;
   line-height: 28px;
   text-align: center;
-  background-color: white;
   color: rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
   border-radius: 0;
