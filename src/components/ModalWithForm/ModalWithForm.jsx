@@ -5,7 +5,7 @@ import React from "react";
 
 
 function ModalWithForm({ children, name, buttonText, title, isOpen, onClose, onSubmit }) {
-    console.log("ModalWithForm rendered - isOpen:", isOpen, "name:", name);
+    console.log("ModalWithForm rendered - isOpen:", isOpen, "name:", name, 'timestamp:', Date.now());
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);

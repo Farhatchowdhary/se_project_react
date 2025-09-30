@@ -78,15 +78,16 @@
   opacity: 1;
 }
 
-.modal__title {
-  bottom: 55px;
-  left: 55px;
+.modal__title { 
   color: black;
   font-weight: 700;
   font-size: 20px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
   z-index: 2;
-  margin-left: 22px;
+  margin-left: 32px;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+ 
+
 }
 
 .modal-weather__name {

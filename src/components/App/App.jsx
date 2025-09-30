@@ -1,4 +1,6 @@
+import { getWeatherData } from "../../utils/weatherApi.js";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Main from "../Main/Main";
 import { defaultClothingItems } from "../../utils/clothingItems";
@@ -11,10 +13,12 @@ import "../../styles/ui-kit.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { addItem } from "../../utils/api";
-
+import { extractWeatherData } from "../../utils/weatherApi.js";
 
 const App = () => {
+  console.log("App component rendered - timestamp:", Date.now());
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [weatherData, setWeatherData] = useState(null);
   const [activeModal, setActiveModal] = useState("");
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -69,6 +73,18 @@ const App = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   }
 
+  useEffect(() => {
+    getWeatherData()
+      .then((data) => {
+        setWeatherData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching weather data:", error);
+      });
+  }, []);
+
+  console.log("Weather data in App:", weatherData);
+
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}>
@@ -76,7 +92,7 @@ const App = () => {
       <div className="app-container">
         <Header onAddClick={handleAddClick} />
 
-        <Main items={clothingItems} onCardClick={handleCardClick} />
+        <Main items={clothingItems} onCardClick={handleCardClick} weatherData={weatherData} />
 
         <ItemModal
           isOpen={activeModal === "item"}
