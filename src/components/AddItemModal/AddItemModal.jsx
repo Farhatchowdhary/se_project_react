@@ -1,6 +1,8 @@
-// onAddItem refers to the submit handler declared in App.jsx
+import "./AddItemModal.css";
+
+
  const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
-   // Call useForm and destructure its values and use in the JSX
+
    
    function handleSubmit(e) {
      e.preventDefault()
