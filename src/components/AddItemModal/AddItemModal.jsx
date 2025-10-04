@@ -8,10 +8,9 @@
    }
      
    return (
-     {/* Don't forget to pass appropriate props to ModalWithForm */}
+
      <ModalWithForm>
-       {/* Set the value, name, and onChange attributes
-        of each input field */}
+   
      </ModalWithForm>
    );
  };
