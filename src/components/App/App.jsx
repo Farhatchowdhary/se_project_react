@@ -54,6 +54,7 @@ const App = () => {
     setActiveModal("");
   };
 
+
   const handleAddClick = () => {
     console.log("Add button clicked! Setting activeModal to add-garment");
     setActiveModal("add-garment");
@@ -135,17 +136,30 @@ const App = () => {
 
   return (
     <CurrentTemperatureUnitContext.Provider
-      value={{ currentTemperatureUnit, handleToggleSwitchChange }}>
+      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+      >
+
       <Router>
         <div className="app-container">
           <Header onAddClick={handleAddClick} />
 
           <Routes>
-            <Route path="/" element={
-              <Main items={clothingItems} onCardClick={handleCardClick} weatherData={weatherData} />
+            <Route
+             path="/" 
+             element={
+              <Main items={clothingItems}
+               onCardClick={handleCardClick} 
+               weatherData={weatherData} />
             } />
 
-            <Route path="/profile" element={<Profile clothingItems={clothingItems} />} />
+            <Route path="/profile" 
+            element={
+            <Profile 
+            clothingItems={clothingItems}
+            onAddClick={handleAddClick}
+            onCardClick={handleCardClick}
+             />
+             } />
           </Routes>
           <Footer />
 
