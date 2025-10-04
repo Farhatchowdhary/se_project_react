@@ -1,0 +1,52 @@
+.clothes-section {
+    background-color: #f5f5f5;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.clothes-section__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.clothes-section__header {
+    display: flex;
+    align-content: center;
+    margin-left: 145px;
+}
+
+.header__title  {
+    font-weight: 700;
+    font-style: bold;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgba(0, 0, 0, 1);
+}
+
+.header-btn  {
+    background-color: #f5f5f5;
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 700;
+
+
+
+}
+
+.header-btn:hover  {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: black;
+}

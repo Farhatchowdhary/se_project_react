@@ -5,9 +5,7 @@ import "./Main.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 const getWeatherCondition = (temperature) => {
-  console.log("Current temp:", currentTemp);
-  console.log("Weather condition:", weatherCondition);
-  console.log("Items:", items.map(item => ({ name: item.name, weather: item.weather})));
+ 
   if (temperature >= 86) {
     return "hot";
   } else if (temperature >= 66) {
@@ -20,7 +18,13 @@ const getWeatherCondition = (temperature) => {
 const Main = ({ items, onCardClick, weatherData }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const currentTemp = weatherData?.temperature?.[currentTemperatureUnit];
+ const weatherCondition =
+ typeof currentTemp === "number" ? getWeatherCondition(currentTemp) : undefined;
 
+  console.log("Current temp:", currentTemp);
+  console.log("Weather condition:", weatherCondition);
+  console.log("Items:", items.map(item => ({ name: item.name, weather: item.weather})));
+  
   return (
     <ul className="main-container">
       <li key="weather-card">
@@ -31,10 +35,10 @@ const Main = ({ items, onCardClick, weatherData }) => {
       </li>
 
       {weatherData &&
+      Array.isArray(items) &&
         items
           // .filter((item) => {
-          //   if (currentTemp === undefined) return false;
-          //   const weatherCondition = getWeatherCondition(currentTemp);
+          //   if (typeof currentTemp !== "number") return false;
           //   return item.weather === weatherCondition;
           // })
           .map((card, index) => (

@@ -124,9 +124,19 @@
   border-radius: 0 0 8px 8px;
   background-color: white;
   overflow: hidden;
+  
 }
 
-.modal__delete-btn {}
+.modal__delete-btn {
+color: rgba(255, 77, 0, 1);
+position:absolute;
+background: none;
+border: none;
+cursor: pointer;
+z-index: 3;
+right: 10px;
+bottom: 65px;
+}
 
 /* Tablet / medium screens */
 @media screen and (max-width: 674px) {
