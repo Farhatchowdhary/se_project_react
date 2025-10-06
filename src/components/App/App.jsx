@@ -1,23 +1,30 @@
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Profile from "../Profile/Profile.jsx";
-import { getWeatherData } from "../../utils/weatherApi.js";
-import React, { useState } from "react";
-import { useEffect } from "react";
+
+// Pages
+import Profile from "../../Pages/Profile.jsx";
+import Main from "../Main/Main.jsx";
+
+// Components
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
+import ItemModal from "../ItemModal/ItemModal.jsx";
+import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import MyConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
+
+// Contexts
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
+
+// Utils
+import { defaultClothingItems } from "../../utils/clothingItems.js";
+import { getWeatherData, extractWeatherData } from "../../utils/weatherApi.js";
+import { addItem, getItems, deleteItem } from "../../utils/api.js";
+
+// Styles
 import "./App.css";
-import Main from "../Main/Main";
-import { defaultClothingItems } from "../../utils/clothingItems";
-import ItemModal from "../ItemModal/ItemModal";
-import Header from "../Header/Header"; // fixed path
-import Footer from "../Footer/Footer";
 import "../../vendor/normalize.css";
 import "../../vendor/fonts.css";
 import "../../styles/ui-kit.css";
-import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { addItem, getItems, deleteItem } from "../../utils/api";
-import { extractWeatherData } from "../../utils/weatherApi.js";
-import MyConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
-
 
 
 
@@ -26,7 +33,7 @@ const App = () => {
   const [clothingItems, setClothingItems] = useState([]);
   const [weatherData, setWeatherData] = useState(null);
   const [activeModal, setActiveModal] = useState("");
-  console.log("Current activeModal stste:", activeModal);
+  console.log("Current activeModal state:", activeModal);
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [radioButton, setRadioButton] = useState("");
