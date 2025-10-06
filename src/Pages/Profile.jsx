@@ -1,7 +1,8 @@
 import React from "react";
-import "./Profile.css";
-import SideBar from "../SideBar/SideBar";
-import ClothesSection from "../ClothesSection/ClothesSection";
+import SideBar from "../../components/SideBar/SideBar";
+import "../../components/SideBar/SideBar.css";
+import ClothesSection from "../../components/ClothesSection/ClothesSection";
+import "../../components/ClothesSection/ClothesSection.css";
 
 const Profile = ({clothingItems, onAddClick, onCardClick}) => {
   return (
