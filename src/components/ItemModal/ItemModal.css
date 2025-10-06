@@ -5,7 +5,7 @@
   justify-content: center;
   position: relative;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
 
 
 }
@@ -121,9 +121,10 @@
 .modal__image-wrapper {
   position: relative;
   display: inline-block;
-  border-radius: 0 0 8px 8px;
+  border-radius: 8px;
   background-color: white;
   overflow: hidden;
+
   
 }
 
@@ -149,6 +150,7 @@ bottom: 65px;
     width: 85%;
     max-width: 400px;
     height: auto;
+    border-radius: 8px;
 
   }
 
@@ -190,6 +192,7 @@ bottom: 65px;
   .modal__image {
     width: 95%;
     height: auto;
+    border-radius: 8px;
 
   }
 

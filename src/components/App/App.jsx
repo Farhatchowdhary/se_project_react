@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Pages
-import Profile from "../../Pages/Profile.jsx";
+import Profile from "../../Pages/Profile/Profile.jsx";
 import Main from "../Main/Main.jsx";
 
 // Components
