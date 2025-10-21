@@ -17,3 +17,19 @@ Currently, two official plugins are available:
 2. Run `npm install`
 3. Run `npm start` (if `react-scripts` is installed)
 
+# WTWR (What to Wear?)
+
+## About
+This project is a weather-based clothing recommendation app...
+
+## Technologies Used
+- React
+- CSS
+- JavaScript
+
+
+## Backend Repository
+[WTWR Backend API](https://github.com/Farhatchowdhary/se_project_express)
+
+## Frontend Repository
+[WTWR Frontend App](https://github.com/Farhatchowdhary/se_project_react)

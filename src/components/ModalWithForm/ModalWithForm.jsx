@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-function ModalWithForm({ children, name, buttonText, title, isOpen, onClose, onSubmit }) {
+function ModalWithForm({ children, name, buttonText, title, isOpen, onClose, onSubmit, isFormValid }) {
     console.log("ModalWithForm rendered - isOpen:", isOpen, "name:", name, 'timestamp:', Date.now());
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -27,17 +27,18 @@ function ModalWithForm({ children, name, buttonText, title, isOpen, onClose, onS
 
                 <form className="modal__form" name={name} onSubmit={handleSubmit}>
                     {children}
-                    <button className="modal__button" type="submit">
+                    <button 
+                        className="modal__button" 
+                        type="submit"
+                        disabled={!isFormValid}  // Add this line
+                    >
                         {buttonText}
                     </button>
                 </form>
-
-
             </div>
         </div>
     );
-};
-
+}
 export default ModalWithForm;
 
 
