@@ -1,18 +1,19 @@
-// /signup for user registration
+// signup
 export const register = (name, avatar, email, password) => {
   return fetch("http://localhost:3001/signup", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, avatar, email, password })
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, avatar, email, password }),
   })
   .then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
   });
 };
 
-// /signup for user authorization
+// /signin 
 export const authorize = (email, password) => {
   return fetch("http://localhost:3001/signin", {
     method: "POST",

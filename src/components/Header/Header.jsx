@@ -10,9 +10,13 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 
 const Header = ({ onAddClick, onLoginClick, onRegisterClick, isLoggedIn  }) => {
-  const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
+   const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
   const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(CurrentTemperatureUnitContext);
   const currentUser = useContext(CurrentUserContext);
+  
+  console.log("=== HEADER DEBUG ===");
+  console.log("isLoggedIn:", isLoggedIn);
+  console.log("currentUser:", currentUser);
   
   
   return (
@@ -39,7 +43,8 @@ const Header = ({ onAddClick, onLoginClick, onRegisterClick, isLoggedIn  }) => {
         {isLoggedIn ? (
           // Logged-in user view
           <>
-            <span className="header__add-btn" onClick={onAddClick}>+ Add Clothes</span>
+            <span className="header__add-btn" 
+            onClick={onAddClick}>+ Add Clothes</span>
             <Link to="/profile">
               <div className="header__user">
                 <span className="header__name">{currentUser.name || "Terrence Tegegne"}</span>

@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import "./SideBar.css";
-import  CurrentUserContext  from "../../contexts/CurrentUserContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import profileImage from "../../assets/profile-img-D2OYzqU-.svg";
+
 
 const SideBar = ({ onEditProfileClick, onSignOut }) => {
   const currentUser = useContext(CurrentUserContext);
@@ -8,23 +10,23 @@ const SideBar = ({ onEditProfileClick, onSignOut }) => {
   return (
     <div className="sidebar">
       <div className="sidebar__user-info">
-        <img 
-          src={currentUser?.avatar || "default-avatar-url"} 
-          alt="User avatar" 
+        <img
+          src={currentUser?.avatar || profileImage}
+          alt="User avatar"
           className="sidebar__avatar"
         />
-        <p className="sidebar__username">{currentUser?.name}</p>
+        <p className="sidebar__username">{currentUser?.name || "Terrence Tegegne"}</p>
       </div>
-      
+
       <div className="sidebar__buttons">
-        <button 
+        <button
           className="sidebar__edit-button"
           onClick={onEditProfileClick}
         >
           Change profile data
         </button>
-        
-        <button 
+
+        <button
           className="sidebar__logout-button"
           onClick={onSignOut}
         >

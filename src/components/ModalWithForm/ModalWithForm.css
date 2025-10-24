@@ -3,7 +3,7 @@
     width: 496px;
     height: 436px;
     background-color: #FFFFFF;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -13,7 +13,7 @@
 
 h2.modal__name {
     font-size: 16px;
-    width: 95px;
+    /* width: 95px; */
     height: 20px;
     font-family: "Cabinet Grotesk", Arial, sans-serif;
     font-weight: 700;
@@ -101,6 +101,7 @@ h2.modal__name {
 }
 
 .modal__legend {
+    width: 182px;
     font-size: 16px;
     margin-bottom: 8px;
     font-weight: 700;
@@ -108,6 +109,8 @@ h2.modal__name {
     margin-left: 28px;
 
 }
+
+
 
 .modal__label_type_radio {
     display: flex;

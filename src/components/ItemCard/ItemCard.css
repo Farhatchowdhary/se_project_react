@@ -43,6 +43,34 @@
     color: rgba(0, 0, 0, 0.6);
 }
 
+.item-card__like-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 130px;
+    width: 21px;
+    height: 19px;
+    background-image: url('../../assets/plain heart.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: 15px;
+
+}
+
+.item-card__like-btn:hover {
+    opacity: 0.6;
+}
+
+.item-card__like-btn_active {
+    background-image: url('../../assets/Like button.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
 @media screen and (max-width: 720px) {
     .item-card {
         max-width: 320px;
