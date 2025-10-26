@@ -126,7 +126,28 @@
   overflow: hidden;
 }
 
-.modal__delete-btn {}
+.modal__delete-button {
+height: 24px;
+font-size: 20px;
+font-style: bold;
+line-height: 24px;
+letter-spacing: 0%;
+font-family: "Cabinet Grotesk", Arial, sans-serif;
+font-weight:700 ;
+color: rgba(255, 77, 0, 1);
+border: none;
+background-color:white ;
+position: absolute;
+left: 350px;
+bottom: 66px;
+margin-right: 31px;
+}
+
+.modal__delete-btn_hidden {
+
+}
+  
+
 
 /* Tablet / medium screens */
 @media screen and (max-width: 674px) {

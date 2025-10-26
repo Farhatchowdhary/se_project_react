@@ -15,14 +15,15 @@ const ItemModal = ({ isOpen, onClose, card, onDelete, currentUser }) => {
         <div className={`modal ${isOpen ? 'modal_is-opened' : ''}`} onClick={onClose}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
                 <button className="modal__close" onClick={onClose}></button>
-                {/* <button className={itemDeleteButtonClassName} onClick={onDelete}></button> */}
+               
                 {card && (
                     <div className="modal__image-wrapper">
                   <img src={card.imageUrl} alt={card.name} className="modal__image" />
+                         <button className={itemDeleteButtonClassName} onClick={onDelete}>Delete item</button>
                         <h2 className="modal__title">{card.name}</h2>
                         <p className="modal__description">{card.description}</p>
                         {card.weather && <p className="modal-weather__name">Weather: {card.weather}</p>}
-                    {/* Add delete button here */}
+                   
                     </div>
                     
                 )}
