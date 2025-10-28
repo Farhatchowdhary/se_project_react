@@ -20,6 +20,7 @@ function LoginModal({ isOpen, onClose, onLogin }) {
     onLogin({ email, password });
   };
 
+
   return (
     <ModalWithForm
       name="login"

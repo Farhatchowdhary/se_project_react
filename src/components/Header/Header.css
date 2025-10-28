@@ -6,6 +6,10 @@
   background-color: #F3F3F3;
   height: 40px;
   margin-left: 3px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 
 }
 
@@ -59,10 +63,19 @@
 .header__user {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header__user-link {
+  text-decoration: none;
+  /* remove underline */
+  color: inherit;
+  /* keep text color same */
 }
 
 .header__name {
-  margin-right: 10px;
+  margin-right: 65px;
   font-size: 14px;
   color: #333;
   top: 8px;
@@ -81,7 +94,8 @@
   height: 30px;
   border-radius: 50%;
   object-fit: cover;
-  background-image: url('../../assets/profile-img.svg'); /* fallback avatar */
+  background-image: url('../../assets/profile-img.svg');
+  /* fallback avatar */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

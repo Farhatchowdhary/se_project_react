@@ -8,17 +8,16 @@ function ModalWithForm({ children, name, buttonText, title, isOpen, onClose, onS
     console.log("ModalWithForm rendered - isOpen:", isOpen, "name:", name, 'timestamp:', Date.now());
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmit(event);
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData.entries());
         console.log("Form submitted:", data);
-        // onSubmit(data);
+        onSubmit(data);
     };
 
 
     return (
-        <div 
-        className={`modal modal_type_${name} ${isOpen ? 'modal_is_opened' : ''}`}>
+        <div
+            className={`modal modal_type_${name} ${isOpen ? 'modal_is_opened' : ''}`}>
             <div className="modal__content_form">
                 <h2 className="modal__name">{title}</h2>
                 <button
