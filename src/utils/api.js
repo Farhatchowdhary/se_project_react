@@ -1,6 +1,8 @@
 import { getToken } from './auth.js';
 
-const baseUrl = "http://localhost:3001";
+const baseUrl = process.env.NODE_ENV === "production" 
+  ? "put the URL for your deployed backend here, including https://"
+  : "http://localhost:3001";
 
 // Add an item (requires auth)
 const addItem = (item) => {

@@ -143,10 +143,7 @@ bottom: 66px;
 margin-right: 31px;
 }
 
-.modal__delete-btn_hidden {
-
-}
-  
+ 
 
 
 /* Tablet / medium screens */
@@ -212,6 +209,10 @@ margin-right: 31px;
   .modal__description {
     font-size: 16px;
     bottom: 8px;
+  }
+
+  .modal__image-wrapper  {
+    
   }
 
   .modal__close {

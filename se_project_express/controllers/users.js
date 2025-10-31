@@ -1,131 +1,118 @@
 import User from '../models/user.js';
 import bcrypt from 'bcrypt';
-import { JWT_SECRET } from '../utils/config.js';
 import jwt from 'jsonwebtoken';
+import { JWT_SECRET } from '../utils/config.js';
+import { BadRequestError } from '../errors/BadRequestError.js';
+import { NotFoundError } from '../errors/NotFoundError.js';
+import { ConflictError } from '../errors/ConflictError.js';
+import { UnauthorizedError } from '../errors/UnauthorizedError.js';
+import { ForbiddenError } from '../errors/ForbiddenError.js';
 
-// GET /users — return all users
-export const getUsers = (req, res) => {
-    User.find()
+
+// ✅ GET /users — return all users
+export const getUsers = (req, res, next) => {
+  User.find()
     .then((users) => res.status(200).json(users))
+    .catch((err) => next(err));
+};
+
+// ✅ GET /users/me — return current authenticated user
+export const getCurrentUser = (req, res, next) => {
+  const userId = req.user._id;
+
+  User.findById(userId)
+    .then((user) => {
+      if (!user) {
+        throw new NotFoundError('User not found');
+      }
+      res.status(200).json(user);
+    })
     .catch((err) => {
-      console.error(err);
-      return res.status(500).json({ message: 'Server error' });
+      if (err.name === 'CastError') {
+        next(new BadRequestError('Invalid user ID format'));
+      } else {
+        next(err);
+      }
     });
 };
 
-// Get/users/me - return current authenticated user
-export const getCurrentUser = (req, res,) => {
-  const userId  = req.user._id;
+// ✅ PATCH /users/me — update current authenticated user
+export const updateCurrentUser = (req, res, next) => {
+  const userId = req.user._id;
+  const { name, avatar } = req.body;
 
-  return User.findById(userId)
+  User.findByIdAndUpdate(
+    userId,
+    { name, avatar },
+    { new: true, runValidators: true }
+  )
     .then((user) => {
       if (!user) {
-        return res.status(404).json({ message: 'User not found' });
+        throw new NotFoundError('User not found');
       }
-      return res.status(200).json(user);
+      res.status(200).json(user);
     })
     .catch((err) => {
-      console.error(err);
-      return res.status(500).json({ message: 'Server error' });
+      if (err.name === 'ValidationError') {
+        next(new BadRequestError('Invalid data provided'));
+      } else if (err.name === 'CastError') {
+        next(new BadRequestError('Invalid user ID format'));
+      } else {
+        next(err);
+      }
     });
 };
 
-// PATCH/users/me - update current authenticated user
-export const updateCurrentUser = (req, res) => {
-const userId  = req.user._id;
-
- const updateData = {
-  name: req.body.name,
-  avatar: req.body.avatar,
-}
-
-const options = {
-   new: true,
-  runValidators: true
-}
-
-  return User.findByIdAndUpdate(userId, updateData, options)
-    .then((user) => {
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      return res.status(200).json(user);
-    })
-    .catch((err) => {
-      console.error(err);
-
-      if (err.name === 'ValidationError')  {
-        return res.status(400).json({ message: 'Invalid data provided'});
-      } else if (err.name === 'DocumentNotFoundError')  {
-        return res.status(404).json({ message: 'User not found'});
-      } else  if (err.name === 'CastError') {
-        return res.status(400).json({ message: 'Invalid user ID format'});
-      } else  {
-        return res.status(500).json({ message: 'An error has occurred on the server' });
-      }
-    });
-}; 
-
-
-// POST /users — create a new user
-export const createUser = (req, res) => {
+// ✅ POST /users — create a new user
+export const createUser = (req, res, next) => {
   const { name, avatar, email, password } = req.body;
 
-  // ✅ Validate required fields
   if (!name || !avatar || !email || !password) {
-    return res.status(400).json({ message: 'Name, avatar, email and password are required' });
+    return next(new BadRequestError('Name, avatar, email and password are required'));
   }
 
-  // Hash the password before saving
-  return bcrypt.hash(password, 10)
-  .then((hashedPassword) => {
-    return User.create({
-      name,
-      avatar,
-      email,
-      password: hashedPassword
-    });
-  })
-  .then((user) => {
-    // Return user data (excluding password)
-   res.status(201).json({
+  bcrypt
+    .hash(password, 10)
+    .then((hashedPassword) =>
+      User.create({
+        name,
+        avatar,
+        email,
+        password: hashedPassword,
+      })
+    )
+    .then((user) => {
+      res.status(201).json({
         _id: user._id,
         name: user.name,
         avatar: user.avatar,
         email: user.email,
       });
-  })
- .catch((err) => {
-      console.error(err);
-    // Handle duplicate email error (MongoDB error code 11000)
-    if (err.code === 11000) {
-      return res.status(409).json({ message: "Email already exists" });
-    }
-
-    // Handle validation errors
-    if (err.name === "ValidationError")  {
-      return res.status(400).json({ message: err.message });
-    };
-
-  // Handle other server errors
-      res.status(500).json({ message: 'Server error' });
+    })
+    .catch((err) => {
+      if (err.code === 11000) {
+        next(new ConflictError('Email already exists'));
+      } else if (err.name === 'ValidationError') {
+        next(new BadRequestError('Invalid data provided'));
+      } else {
+        next(err);
+      }
     });
 };
 
-export const login = (req, res) => {
+// ✅ POST /login — login user and return JWT
+export const login = (req, res, next) => {
   const { email, password } = req.body;
 
   User.findUserByCredentials(email, password)
-  .then((user) => {
-    const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
-      expiresIn: "7d",
+    .then((user) => {
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
+        expiresIn: '7d',
+      });
+      res.send({ token });
+    })
+    .catch((err) => {
+      next(new UnauthorizedError('Invalid email or password'));
+
     });
-    // send the token back to the client
-    res.send({ token });
-  })
-  .catch((err) => {
-    res.status(401).send({ message: "Incorrect email or password" });
-  });
 };
-
-
