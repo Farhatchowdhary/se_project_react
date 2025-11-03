@@ -33,3 +33,9 @@ This project is a weather-based clothing recommendation app...
 
 ## Frontend Repository
 [WTWR Frontend App](https://github.com/Farhatchowdhary/se_project_react)
+
+
+
+## Deployment
+## Live Demo
+Check out the deployed frontend here: [WTWR App on GitHub Pages](https://farhatchowdhary.github.io/se_project_react/)
