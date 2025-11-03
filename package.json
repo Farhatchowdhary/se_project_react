@@ -12,7 +12,7 @@
     "deploy": "gh-pages -d dist",
     "server": "json-server --watch db.json --id _id --port 3001"
   },
-  "homepage": "",
+  "homepage": "https://Farhatchowdhary.github.io/se_project_react/",
   "dependencies": {
     "celebrate": "^15.0.3",
     "express-winston": "^4.2.0",
