@@ -36,9 +36,10 @@ WTWR (What to Wear?) is a full-stack web application that helps users decide wha
 - **Process Management**: PM2 for server reliability and crash recovery
 
 ## Deployed Application
-- **Domain:** https://seprojectexpress.tk
-- **Frontend Repository:** https://github.com/yourusername/se_project_react
-- **Project Pitch Video:** [Add video link here once recorded]
+- **Domain:** https://seprojectexpress-production.up.railway.app
+- **Frontend Repository:** https://github.com/Farhatchowdhary/se_project_react
+- **Project Pitch Video:** [https://www.loom.com/share/b09ebc0dc9cf48a295f99844e015454f?sid=979881f2-b374-45e3-8ffa-0254988f3c4a](https://www.loom.com/share/b09ebc0dc9cf48a295f99844e015454f?sid=979881f2-b374-45e3-8ffa-0254988f3c4a)
+
 
 ## Technologies Used
 
