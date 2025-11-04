@@ -104,22 +104,18 @@ npm install
 3. Start the server:
 npm start
 
-Frontend Setup
+### Frontend Setup
+
 1. Clone the frontend repository:
+
+```bash
 git clone https://github.com/Farhatchowdhary/se_project_react.git
 cd se_project_react
 
-2. Install dependencies:
-npm install
-
-3. Start the development server:
-npm run dev
-The app will be available at http://localhost:5173
-
-
 
 Project Pitch
-Check out [this video](https://www.loom.com/share/...)(https://www.loom.com/looms/videos)
+Check out [this video](https://www.loom.com/share/b09ebc0dc9cf48a295f99844e015454f?sid=979881f2-b374-45e3-8ffa-0254988f3c4a)
 where I explain the project, its features, and challenges I faced while building it.
+
 
 
