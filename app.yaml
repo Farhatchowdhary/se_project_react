@@ -1,0 +1,14 @@
+runtime: nodejs20
+instance_class: F1
+
+# Tells App Engine how to start your app
+entrypoint: npm start
+
+# Optional: automatic scaling
+automatic_scaling:
+  min_instances: 1
+  max_instances: 3
+
+# Environment variables
+env_variables:
+  NODE_ENV: production
