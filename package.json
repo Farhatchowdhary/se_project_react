@@ -2,7 +2,7 @@
   "name": "se_project_express",
   "version": "1.0.0",
   "description": "Practice Express.js and MongoDB project for learning backend development.",
-  "main": "index.js",
+  "main": "app.mjs",
   "type": "module",
   "scripts": {
     "start": "node app.mjs",
@@ -17,6 +17,7 @@
     "@hexlet/immutable-fs-trees": "^0.7.2",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
+    "celebrate": "^15.0.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
