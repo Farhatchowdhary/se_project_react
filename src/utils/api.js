@@ -1,7 +1,7 @@
 import { getToken } from './auth.js';
 
 const baseUrl = process.env.NODE_ENV === "production" 
-  ? "put the URL for your deployed backend here, including https://"
+  ? "https://se-project-express-476617.uc.r.appspot.com"
   : "http://localhost:3001";
 
 // Add an item (requires auth)
