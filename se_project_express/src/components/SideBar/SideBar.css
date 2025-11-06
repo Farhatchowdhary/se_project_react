@@ -1,0 +1,76 @@
+.sidebar {
+    width: 250px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 20px;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+
+
+.sidebar__user-info {
+    font-family: "Cabinet Grotesk" Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(0, 0, 0, 1);
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+.sidebar__username {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    overflow: hidden;
+    /* optional: hide overflow if too long */
+    text-overflow: ellipsis;
+    width: 157px;
+    height: 25px;
+    text-decoration: none;
+}
+
+.sidebar__edit-button,
+.sidebar__logout-button {
+    width: 100%;
+    padding: 10px;
+     margin-left: 0;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+
+
+}
+
+.sidebar__logout-button {
+    background-color: #f0f0f0;
+    color: #333333;
+    margin-left: 0;
+}
+
+.sidebar__edit-button:hover {
+    color: rgba(0, 0, 0, 1);
+    opacity: 0.5;
+}
+
+.sidebar__logout-button:hover {
+    color: rgba(0, 0, 0, 1);
+    opacity: 0.5;
+}
+
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}

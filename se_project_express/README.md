@@ -6,9 +6,10 @@ WTWR (What to Wear?) is a full-stack web application that helps users decide wha
 
 ## Live Demo
 
-- **Frontend (React App):** [https://Farhatchowdhary.github.io/se_project_react/](https://Farhatchowdhary.github.io/se_project_react/)
+- **Frontend (React App):** [https://wtwr-220ff.web.app](https://wtwr-220ff.web.app)
 
-- **Backend (API Server):** [https://seprojectexpress-production.up.railway.app](https://seprojectexpress-production.up.railway.app)
+
+- **Backend (API Server):** [https://se-project-express-476617.uc.r.appspot.com](https://se-project-express-476617.uc.r.appspot.com)
 
 - **Frontend Repository:** [https://github.com/Farhatchowdhary/se_project_react](https://github.com/Farhatchowdhary/se_project_react)
 
@@ -102,7 +103,9 @@ npm install
 
 
 3. Start the server:
+```bash
 npm start
+```
 
 ### Frontend Setup
 
@@ -111,11 +114,7 @@ npm start
 ```bash
 git clone https://github.com/Farhatchowdhary/se_project_react.git
 cd se_project_react
-
-
-Project Pitch
-Check out [this video](https://www.loom.com/share/b09ebc0dc9cf48a295f99844e015454f?sid=979881f2-b374-45e3-8ffa-0254988f3c4a)
-where I explain the project, its features, and challenges I faced while building it.
+```
 
 
 
