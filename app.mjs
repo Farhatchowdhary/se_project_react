@@ -8,6 +8,8 @@ import errorHandler from './middlewares/error-handler.js';
 import { requestLogger, errorLogger } from "./middlewares/logger.js";
 import { validateCardBody } from './middlewares/validation.js';
 import { errors } from "celebrate";
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 console.log('itemsRoute:', itemsRoute);
@@ -20,9 +22,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Connect to MongoDB
+// Connect to MongoDB Atlas
 mongoose
-  .connect('mongodb://127.0.0.1:27017/wtwr_db')
-  .then(() => console.log('✅ Connected to MongoDB'))
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('✅ Connected to MongoDB Atlas'))
   .catch((err) => console.error('❌ MongoDB connection error:', err));
 
 // Middleware to parse JSON
