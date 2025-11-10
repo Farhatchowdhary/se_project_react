@@ -28,10 +28,11 @@ import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
 
 // Styles
-import "./App.css";
 import "../../vendor/normalize.css";
 import "../../vendor/fonts.css";
 import "../../styles/ui-kit.css";
+import "./App.css";
+
 
 
 const App = () => {
@@ -115,22 +116,31 @@ const App = () => {
     setActiveModal("add-garment");
   };
 
-  const handleAddItemSubmit = (e) => {
+ const handleAddItemSubmit = (e) => {
+  // Check if e is an event object before calling preventDefault
+  if (e && typeof e.preventDefault === 'function') {
     e.preventDefault();
+  }
 
-    const newItem = { name, imageUrl, weather: radioButton };
+  console.log("Form submitted with data:", { name, imageUrl, weather: radioButton });
 
+  const newItem = { name, imageUrl, weather: radioButton };
 
-    addItem(newItem)
-      .then((item) => {
-        setClothingItems([item, ...clothingItems]);
-        setActiveModal("");
-        setName("");
-        setImageUrl("");
-        setRadioButton("");
-      })
-      .catch((err) => console.error("Error adding item:", err));
-  };
+  addItem(newItem)
+    .then((item) => {
+      console.log("Item returned from backend:", item);
+      console.log("Current clothingItems before update:", clothingItems);
+      
+      setClothingItems([item, ...clothingItems]);
+      
+      console.log("Item should be added to state now");
+      setActiveModal("");
+      setName("");
+      setImageUrl("");
+      setRadioButton("");
+    })
+    .catch((err) => console.error("Error adding item:", err));
+};
 
   const handleToggleSwitchChange = () =>
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -200,12 +210,10 @@ const App = () => {
   };
 
   return (
-
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
     >
       <CurrentUserContext.Provider value={currentUser}>
-
         <div className="app-container">
           <Header
             onAddClick={handleAddClick}
@@ -215,7 +223,7 @@ const App = () => {
             userData={currentUser}
             weatherData={weatherData}
           />
-          {/* page content */}
+
           <Routes>
             <Route
               path="/"
@@ -248,59 +256,52 @@ const App = () => {
           </Routes>
 
           <Footer />
-
-          <ItemModal
-            isOpen={activeModal === "item"}
-            onClose={handleCloseModal}
-            card={selectedCard}
-            onDelete={() => setActiveModal("confirmation")}
-          />
-
-
-
-
-          <MyConfirmationModal
-            show={activeModal === "confirmation"}
-            onClose={handleCloseModal}
-            message={
-              "Are you sure you want to delete this item?\nThis action is irreversible."
-            }
-            onConfirm={handleDeleteItem}
-          />
-
-
-
-          <RegisterModal
-            isOpen={activeModal === "register"}
-            handleRegistration={handleRegistration}  // Use the new function
-            onClose={handleCloseModal}
-          />
-
-          <LoginModal
-            isOpen={activeModal === "login"}
-            onClose={handleCloseModal}
-            onLogin={handleLogin}
-          />
-
-          <EditProfileModal
-            isOpen={activeModal === "edit-profile"}
-            onClose={handleCloseModal}
-            onUpdateProfile={handleUpdateProfile}
-          />
-
-          <AddItemModal
-            isOpen={activeModal === "add-garment"}
-            onAddItem={handleAddItemSubmit}
-            onCloseModal={handleCloseModal}
-            name={name}
-            setName={setName}
-            imageUrl={imageUrl}
-            setImageUrl={setImageUrl}
-            radioButton={radioButton}
-            setRadioButton={setRadioButton}
-          />
-
         </div>
+
+        {/* Modals */}
+        <ItemModal
+          isOpen={activeModal === "item"}
+          onClose={handleCloseModal}
+          card={selectedCard}
+          onDelete={() => setActiveModal("confirmation")}
+        />
+
+        <MyConfirmationModal
+          show={activeModal === "confirmation"}
+          onClose={handleCloseModal}
+          message={"Are you sure you want to delete this item?\nThis action is irreversible."}
+          onConfirm={handleDeleteItem}
+        />
+
+        <RegisterModal
+          isOpen={activeModal === "register"}
+          handleRegistration={handleRegistration}
+          onClose={handleCloseModal}
+        />
+
+        <LoginModal
+          isOpen={activeModal === "login"}
+          onClose={handleCloseModal}
+          onLogin={handleLogin}
+        />
+
+        <EditProfileModal
+          isOpen={activeModal === "edit-profile"}
+          onClose={handleCloseModal}
+          onUpdateProfile={handleUpdateProfile}
+        />
+
+        <AddItemModal
+          isOpen={activeModal === "add-garment"}
+          onAddItem={handleAddItemSubmit}
+          onCloseModal={handleCloseModal}
+          name={name}
+          setName={setName}
+          imageUrl={imageUrl}
+          setImageUrl={setImageUrl}
+          radioButton={radioButton}
+          setRadioButton={setRadioButton}
+        />
       </CurrentUserContext.Provider>
     </CurrentTemperatureUnitContext.Provider>
   );

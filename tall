@@ -1,0 +1,32 @@
+[33m28f7f53[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Final backend updates with environment variables removed from tracking
+[33m13d9c02[m Remove .env files from tracking and update .gitignore
+[33md3170e9[m Fix: sync package-lock.json with package.json
+[33m3e53f93[m Fix: correct package.json syntax
+[33mf285130[m Fix: add missing dependencies for GAE
+[33mb773c35[m Fix: add missing dependencies for GAE
+[33mfa797a6[m Fix dependencies for GAE deployment
+[33m002eafa[m Sync package-lock.json for GAE deployment
+[33m24d26f9[m Sync package-lock.json with package.json
+[33mc75c6fb[m Fix backend for GAE deployment
+[33m80b20fb[m Remove duplicate files
+[33maf7e1ed[m Frontend updates: fixed auth.js URLs and added .env
+[33m707f046[m feat: update frontend for final deployment
+[33m06cf33e[m Second try Sprint 15
+[33m8b51c1a[m Update frontend
+[33md75b7b2[m Prepare frontend for GitHub Pages deployment
+[33mf7a0746[m Prepare frontend for Render deployment
+[33m35510aa[m Initial frontend deploy
+[33me2ea2b6[m[33m ([m[1;31morigin/sprint14-recovery[m[33m)[m Last project submission
+[33md4b7c85[m Add backend folder as normal folder
+[33m380af8e[m Remove backend folder from Git tracking
+[33ma53efa4[m Add backend as normal folder instead of submodule
+[33m9197d34[m Second attempt Sprint 14
+[33ma5598eb[m Sprint 14 project added delete button
+[33mbf6d196[m Removed broken submodule and corrected Sprint 14
+[33m4f40cf8[m Corrected Sprint14
+[33mef00b1d[m[33m ([m[1;32mtemp-progress[m[33m)[m Sprint 14 project frontend
+[33ma288e84[m[33m ([m[1;32mbackup-main[m[33m)[m Prepare project for submission
+[33m9957b22[m correction of toggle switch done
+[33m2a5a4be[m Submit project
+[33ma9164b4[m corrected project sprint9
+[33mf49aaef[m Clean initial commit

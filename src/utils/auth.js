@@ -1,8 +1,10 @@
-const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3001";
+const baseUrl = process.env.NODE_ENV === "production" 
+  ? "https://se-project-express-476617.uc.r.appspot.com/api"
+  : "http://localhost:3001";
 
 // signup
 export const register = (name, avatar, email, password) => {
-  return fetch(`${BASE_URL}/signup`, {
+  return fetch(`${baseUrl}/signup`, {  // ✅ added missing comma
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, avatar, email, password }),
@@ -12,7 +14,7 @@ export const register = (name, avatar, email, password) => {
 
 // signin
 export const authorize = (email, password) => {
-  return fetch(`${BASE_URL}/signin`, {
+  return fetch(`${baseUrl}/signin`, {  // ✅ added missing comma
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -20,16 +22,30 @@ export const authorize = (email, password) => {
   .then((res) => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`));
 };
 
-// get user info
-export const getUserInfo = (token) => {
-  return fetch(`${BASE_URL}/users/me`, {
+
+
+export const getUserInfo = (token = getToken()) => {
+  if (!token) return Promise.resolve(null); // no token, just return null
+
+  return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`,
     },
   })
-  .then((res) => res.ok ? res.json() : Promise.reject(`Error: ${res.status}`));
+  .then((res) => {
+    if (res.status === 403) {
+      console.warn("⚠️ Token invalid or expired");
+      removeToken(); // optional: remove invalid token
+      return null;
+    }
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  })
+  .catch((err) => {
+    console.error("Error fetching user info:", err);
+    return null; // silently return null
+  });
 };
 
 // token helpers

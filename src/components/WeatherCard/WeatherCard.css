@@ -1,21 +1,21 @@
 .weather-card {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 40px;
+  flex-direction: column;
+  align-items:flex-start;
+  gap: 10px;
   width: 100%;
   margin: 20px auto 0 auto;
   position: relative;
 }
 
+
 .weather_img {
   width: 92vw;
+  max-width: 100%; /* prevent overflow */
   height: 80px;
   border-radius: 8px;
   display: block;
-  margin-top: 0;
-  padding: 40px;
-  margin-right: 10px;
+  margin: 0 auto;
 }
 
 .weather-deg {
@@ -25,6 +25,7 @@
   color: #FFFFFF;
   margin-left: 65px;
   position: absolute;
+  margin-top: 17px;
   font-family: "Cabinet Grotesk", Arial, sans-serif;
 }
 

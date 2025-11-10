@@ -1,5 +1,6 @@
 // routes/items.js
 console.log("✅ itemsRoute file loaded");
+console.log("✅ Items route loaded");
 
 import express from 'express';
 import  {auth}  from '../middlewares/auth.js';

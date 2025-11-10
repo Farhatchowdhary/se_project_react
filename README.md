@@ -55,12 +55,8 @@ WTWR (What to Wear?) is a full-stack web application that helps users decide wha
 - Validation: Celebrate & validator
 
 ### Deployment & DevOps
-
-- Frontend: GitHub Pages
-- Backend: Railway
-- SSL/TLS encryption
-- PM2 for process management
-- Git for version control
+- Frontend: Firebase Hosting
+- Backend: Google Cloud Platform (App Engine)
 
 ### Development Tools
 
@@ -84,7 +80,7 @@ Create a `.env` file in the root directory of your backend project:
 
 ```bash
 NODE_ENV=production
-JWT_SECRET=your_jwt_secret_here
+JWT_SECRET=71adf14d181b252a437bdcdf9374817e20abe1fd082d5e2744591d67cfd957bd7593feea3e26a5802113520a87a73203c2c8513965b894bf111f5b57983a6084
 MONGODB_URI=mongodb://localhost:27017/wtwr_db
 ```
 

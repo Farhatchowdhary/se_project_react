@@ -2,6 +2,7 @@ import ClothingItem from '../models/item.js';
 
 // Get items - return all clothing items
 export const getItems = async (req, res) => {
+ console.log("🔥 GET /api/items called");
   try {
     const items = await ClothingItem.find({});
     return res.status(200).json({ status: 'success', data: items });
