@@ -1,10 +1,9 @@
 import { getToken } from './auth.js';
 
-const baseUrl =
-  import.meta.env.MODE === "production"
-    ? "https://se-project-express-476617.uc.r.appspot.com/api"
-    : "http://localhost:3001/api";
-
+const baseUrl = process.env.NODE_ENV === "production" 
+  ? "https://se-project-express-476617.uc.r.appspot.com"
+  : "http://localhost:3001";
+  
 // Public GET - fetch all items
 const getItems = () => {
   return fetch(`${baseUrl}/items?t=${Date.now()}`, {

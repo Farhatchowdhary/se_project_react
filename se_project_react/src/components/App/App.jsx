@@ -32,7 +32,7 @@ import "../../vendor/normalize.css";
 import "../../vendor/fonts.css";
 import "../../styles/ui-kit.css";
 import "./App.css";
-const API_URL = import.meta.env.VITE_API_URL;
+
 
 
 const App = () => {
@@ -53,61 +53,39 @@ const App = () => {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
 
-// Fetch clothing items from backend
-useEffect(() => {
-  const fetchItems = async () => {
-    try {
-      const response = await getItems();
-      const items = response?.data || response || [];
-      setClothingItems(items); // always set an array
-    } catch (err) {
-      console.error("Error fetching items:", err);
-      setClothingItems([]); // fallback so app doesn't break
-    }
-  };
+  // Fetch clothing items from backend
+  useEffect(() => {
+    getItems()
+      .then((response) => {
+        console.log("Fetched items:", response);
+        const items = response.data || response;
+        setClothingItems(items);
+      })
+      .catch((err) => console.error("Error fetching items:", err));
+  }, []);
 
-  fetchItems();
-}, []);
+  // Fetch weather data
+  useEffect(() => {
+    getWeatherData()
+      .then(setWeatherData)
+      .catch((err) => console.error("Error fetching weather:", err));
+  }, []);
 
-// Fetch weather data
-useEffect(() => {
-  const fetchWeather = async () => {
-    try {
-      const data = await getWeatherData();
-      setWeatherData(data);
-    } catch (err) {
-      console.error("Error fetching weather:", err);
-      setWeatherData(null); // fallback
-    }
-  };
-
-  fetchWeather();
-}, []);
-
-// Check logged-in user
-useEffect(() => {
-  const fetchUser = async () => {
+  // Check logged-in user
+  useEffect(() => {
     const jwt = getToken();
-    if (!jwt) {
-      setCurrentUser({});
-      setIsLoggedIn(false);
-      return;
-    }
+    if (!jwt) return;
 
-    try {
-      const user = await auth.getUserInfo(jwt);
-      setCurrentUser(user ?? {}); // safe default
-      setIsLoggedIn(Boolean(user));
-    } catch (err) {
-      console.error("Error fetching user info:", err);
-      setCurrentUser({});
-      setIsLoggedIn(false);
-    }
-  };
 
-  fetchUser();
-}, []);
 
+    // If you have getUserInfo function in auth.js
+    auth.getUserInfo(jwt)
+      .then(({ username, email }) => {
+        setIsLoggedIn(true);
+        setCurrentUser({ username, email });
+      })
+      .catch(console.error);
+  }, []);
 
   const handleCardClick = (card) => {
     setSelectedCard(card);

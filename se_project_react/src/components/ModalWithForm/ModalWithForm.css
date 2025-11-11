@@ -140,12 +140,11 @@ h2.modal__name {
 
 .modal-btn__close {
     position: absolute;
-    background: transparent;
     top: 20px;
     right: 20px;
     width: 16px;
     height: 16px;
-    background-image: url("../../assets/close.png");
+    background-image: url("src/assets/Group 119 (1).png");
     background-repeat: center center;
     background-size: contain;
     border: none;
@@ -154,13 +153,6 @@ h2.modal__name {
     opacity: 1;
     color: rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
-}
-
-.modal-btn__close img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;
 }
 
 .modal-btn__close:hover {
