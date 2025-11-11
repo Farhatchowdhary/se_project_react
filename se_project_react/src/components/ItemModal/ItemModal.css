@@ -1,0 +1,228 @@
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+
+
+}
+
+
+.modal {
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 10000;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: visibility 0s, opacity 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+
+
+}
+
+
+.modal__image {
+  width: 90vw;
+  max-width: 498px;
+  height: 498px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  z-index: 1;
+  position: relative;
+  background-color: white;
+  display: block;
+  aspect-ratio: 1 / 1;
+
+
+}
+
+.modal__close {
+  position: absolute;
+  top: 30px;
+  right: 22px;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  background-image: url("src/assets/Union (7).png");
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+
+.modal__close:hover {
+  opacity: 3;
+  transform: scale(1.2);
+  filter: brightness(1.6);
+}
+
+.modal_is-opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__title { 
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+  z-index: 2;
+  margin-left: 32px;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+ 
+
+}
+
+.modal-weather__name {
+  color: black;
+  height: 24px;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  z-index: 1;
+  margin-left: 22px;
+
+
+}
+
+.modal__description {
+  position: absolute;
+  height: 24px;
+  font-family: "Cabinet Grotesk" Arial, sans-serif;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  font-size: 20px;
+  z-index: 2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.modal__image-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 0 0 8px 8px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.modal__delete-button {
+height: 24px;
+font-size: 20px;
+font-style: bold;
+line-height: 24px;
+letter-spacing: 0%;
+font-family: "Cabinet Grotesk", Arial, sans-serif;
+font-weight:700 ;
+color: rgba(255, 77, 0, 1);
+border: none;
+background-color:white ;
+position: absolute;
+left: 350px;
+bottom: 66px;
+margin-right: 31px;
+}
+
+ 
+
+
+/* Tablet / medium screens */
+@media screen and (max-width: 674px) {
+  .modal__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal__image {
+    width: 85%;
+    max-width: 400px;
+    height: auto;
+
+  }
+
+  .modal__title {
+    font-size: 18px;
+    bottom: 35px;
+
+
+  }
+
+  .modal__description {
+    font-size: 18px;
+    bottom: 0px;
+
+  }
+
+  .modal__close {
+    font-size: 18px;
+    padding: 4px 8px;
+    cursor: pointer;
+
+  }
+
+  .modal__close:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: brightness(1.2);
+  }
+}
+
+/* Mobile / small screens */
+@media screen and (max-width: 480px) {
+  .modal__content {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .modal__image {
+    width: 95%;
+    height: auto;
+
+  }
+
+  .modal__title {
+    font-size: 16px;
+    bottom: 25px;
+  }
+
+  .modal__description {
+    font-size: 16px;
+    bottom: 8px;
+  }
+
+  .modal__image-wrapper  {
+    
+  }
+
+  .modal__close {
+    font-size: 16px;
+    top: 5px;
+    right: 5px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 3px 6px;
+  }
+}

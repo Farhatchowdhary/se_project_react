@@ -1,0 +1,36 @@
+.clothes-section__title-add {
+  display: flex;
+  align-items: center;         /* vertically center title + button */
+  gap: 16px; 
+  margin-top: 16px;                  /* spacing between title and button */
+}
+
+.clothes-section__title  {
+ font-family: "Cabinet Grotesk", Arial, sans-serif;
+font-size: 20px;
+font-weight: 700;
+line-height: 100%;
+border: none;
+}
+
+.clothes-section__add-button  {
+ border: none;
+ font-size: 20px;
+ font-weight: bold;
+ line-height: 100%;
+ font-family: "Cabinet Grotesk", Arial, sans-serif;
+
+}
+
+.clothes-section__add-button:hover {
+    opacity: 0.5;
+}
+
+
+
+.clothes-section__add-button::first-letter {
+  font-size: 26px;
+  font-weight: bold;
+  position: relative;
+  top: 3px;
+}

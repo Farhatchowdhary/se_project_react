@@ -1,0 +1,9 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;      /* top-align sidebar + grid */
+  justify-content: flex-start;  /* push content to the left */
+  gap: 40px;                    /* space between sidebar & clothes */
+  padding: 20px 40px;           /* space from page edges */
+  width: 100%;
+}
