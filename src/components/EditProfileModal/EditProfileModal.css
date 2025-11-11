@@ -1,0 +1,69 @@
+/* EditProfileModal.css */
+.modal_type_edit-profile .modal__content_form {
+    width: 496px;
+    /* different size than AddItemModal */
+    height: 304px;
+    border-radius: 20px;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 1);
+
+}
+
+.modal_type_edit-profile .modal__input::placeholder {
+    color: rgba(0, 0, 0, 1);
+    font-style: bold;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: "Cabinet Grotesk" Arial, sans-serif;
+
+
+}
+
+
+
+.modal_type_edit-profile .modal__label {
+    font-size: 16px;
+    font-weight: 700;
+    font-style: bold;
+    font-family: "Cabinet Grotesk" Arial, sans-serif;
+    color: #333;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 15px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.modal_type_edit-profile .modal__name {
+    border-bottom: rgba(0, 0, 0, 1);
+    background: transparent;
+    opacity: 1;
+    height: 20px;
+    font-size: 16px;
+    margin-top: 8px;
+    line-height: 20px;
+    font-style: bold;
+    font-weight: 700;
+    font-family: "Cabinet Grotesk" Arial, sans-serif;
+}
+
+.modal_type_edit-profile .modal__button {
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    width: 128px;
+    height: 36px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.modal_type_edit-profile .modal__button:hover {
+   opacity: 0.5;
+}
+
+.modal_type_edit-profile .modal-btn__close  {
+    width: 16px;
+    height: 16px;
+    color: rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,151 @@
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  gap: 10px;
+  width: 100%;
+  margin: 20px auto 0 auto;
+  position: relative;
+}
+
+
+.weather_img {
+  width: 92vw;
+  max-width: 100%; /* prevent overflow */
+  height: 80px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.weather-deg {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 40px;
+  color: #FFFFFF;
+  margin-left: 65px;
+  position: absolute;
+  margin-top: 17px;
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+}
+
+.weather-card__suggestion {
+  font-family: "Cabinet Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+  margin-left: 40px;
+
+}
+
+.weather-card__sunny-day {
+  background-image: url('../../assets/sunny.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.weather-card__cloudy-day {
+  background-image: url('../../assets/cloudy.png');
+  background-size: cover;
+  background-position: center;
+
+}
+
+.weather-card__rainy-day {
+  background-image: url('../../assets/rainy.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.weather-card__stormy-day {
+  background-image: url('../../assets/stormy.png');
+  background-size: cover;
+  background-position: center;
+
+}
+
+.weather-card__foggy-day {
+  background-image: url('../../assets/foggy.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.weather-card__snowy-day {
+  background-image: url('../../assets/snowy.png');
+  background-size: cover;
+  background-position: center;
+
+}
+
+
+
+/* ---------------- Tablet / medium screens ---------------- */
+@media screen and (max-width: 720px) {
+  .weather-card {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .weather_img {
+    width: 90%;
+    height: 60px;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .weather-deg {
+    position: relative;
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 28px;
+    color: black;
+  }
+
+  h3 {
+    font-size: 18px;
+    text-align: center;
+    margin: 10px 0 0 0;
+  }
+
+  .weather-card__suggestion {
+    font-family: "Cabinet Grotesk", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+    margin-left: 40px;
+
+  }
+}
+
+/* ---------------- Mobile / small screens ---------------- */
+@media screen and (max-width: 480px) {
+  .weather-card {
+    width: 95%;
+  }
+
+  .weather_img {
+    width: 95%;
+    height: 60px;
+    border-radius: 8px;
+  }
+
+  .weather-deg {
+    font-size: 24px;
+    color: black;
+    position: relative;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .weather-card__suggestion {
+    font-size: 16px;
+    text-align: center;
+    margin: 5px auto 0 auto;
+  }
+
+}

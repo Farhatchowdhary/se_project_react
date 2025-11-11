@@ -1,0 +1,35 @@
+{
+  "name": "se_project_express",
+  "version": "1.0.0",
+  "author": "Farhat Chowdhary",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ."
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "celebrate": "^15.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.8.7",
+    "node-fetch": "^3.3.2",
+    "validator": "^13.15.20",
+    "winston": "^3.18.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

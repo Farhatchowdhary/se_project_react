@@ -1,0 +1,17 @@
+runtime: nodejs20
+
+entrypoint: npm start
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 3
+
+skip_files:
+  - ^(.*/)?\.git
+  - ^(.*/)?node_modules/
+  - ^client_build/.*
+
+env_variables:
+  NODE_ENV: production
+  MONGO_URI: 'mongodb+srv://farhatchoudhary2_db_user:Farhat4@cluster0.gucofhj.mongodb.net/wtwr_db?retryWrites=true&w=majority'
+  JWT_SECRET: '71adf14d181b252a437bdcdf9374817e20abe1fd082d5e2744591d67cfd957bd7593feea3e26a5802113520a87a73203c2c8513965b894bf111f5b57983a6084'
