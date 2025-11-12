@@ -6,16 +6,17 @@ WTWR (What to Wear?) is a full-stack web application that helps users decide wha
 
 ## Live Demo
 
-- **Frontend (React App):** [https://wtwr-220ff.web.app](https://wtwr-220ff.web.app)
+- **Frontend (React App):** [https://myfrontend123.ignorelist.com](https://myfrontend123.ignorelist.com)  
+  or [https://www.myfrontend123.ignorelist.com](https://www.myfrontend123.ignorelist.com)
 
-
-- **Backend (API Server):** [https://se-project-express-476617.uc.r.appspot.com](https://se-project-express-476617.uc.r.appspot.com)
+- **Backend (API Server):** [https://api.myfrontend123.ignorelist.com](https://api.myfrontend123.ignorelist.com)
 
 - **Frontend Repository:** [https://github.com/Farhatchowdhary/se_project_react](https://github.com/Farhatchowdhary/se_project_react)
 
 - **Backend Repository:** [https://github.com/Farhatchowdhary/se_project_express](https://github.com/Farhatchowdhary/se_project_express)
 
 - **Project Pitch Video:** [Watch Here](https://www.loom.com/share/b09ebc0dc9cf48a295f99844e015454f?sid=979881f2-b374-45e3-8ffa-0254988f3c4a)
+
 
 ---
 
